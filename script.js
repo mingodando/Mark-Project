@@ -44,6 +44,36 @@ function initSlideshow(show) {
 
   if (!slides.length) return;
 
+  // Inject blurred bg div + badges into every slide
+  const groupName = show.id.replace('group-', '');
+  const tabEl = document.querySelector(`.gtab[data-group="${groupName}"]`);
+  const tabLabel = tabEl ? tabEl.textContent.trim() : '';
+
+  slides.forEach((slide, i) => {
+    const img = slide.querySelector('img');
+    const wrap = slide.querySelector('.photo-wrap');
+    if (img && wrap && !wrap.querySelector('.photo-bg')) {
+      // Blurred background div
+      const bg = document.createElement('div');
+      bg.className = 'photo-bg';
+      const setSrc = () => { bg.style.backgroundImage = `url('${img.src}')`; };
+      if (img.complete) setSrc(); else img.addEventListener('load', setSrc);
+      wrap.insertBefore(bg, wrap.firstChild);
+
+      // Group name badge (left)
+      const badgeLeft = document.createElement('div');
+      badgeLeft.className = 'slide-badge left';
+      badgeLeft.textContent = tabLabel;
+      wrap.appendChild(badgeLeft);
+
+      // Slide counter badge (right)
+      const badgeRight = document.createElement('div');
+      badgeRight.className = 'slide-badge right';
+      badgeRight.textContent = `${i + 1} / ${slides.length}`;
+      wrap.appendChild(badgeRight);
+    }
+  });
+
   // Build dots
   dotsEl.innerHTML = '';
   slides.forEach((_, i) => {
