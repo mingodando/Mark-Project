@@ -176,7 +176,9 @@ body {
 /* Each individual slide */
 .slide {
   min-width: 100%;
+  max-width: 100%;
   flex-shrink: 0;
+  overflow: hidden;
 }
 
 /* Photo area — fixed height, blurred sides fill portrait gaps */
