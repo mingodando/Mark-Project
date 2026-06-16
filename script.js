@@ -78,7 +78,6 @@ function initSlideshow(show) {
   nextBtn.addEventListener('click', () => goTo(show, getIdx(show) + 1));
 
   state.set(show, { idx: 0, raf: null, start: null, paused: false });
-  // Pause button
   const pauseBtn = show.querySelector('.pause-btn');
   if (pauseBtn) {
     pauseBtn.classList.add('playing');
@@ -89,13 +88,11 @@ function initSlideshow(show) {
         s.paused = false;
         pauseBtn.innerHTML = '&#10074;&#10074;';
         pauseBtn.classList.remove('paused');
-        pauseBtn.classList.add('playing');
         pauseBtn.setAttribute('aria-label', 'Pause slideshow');
         startAuto(show);
       } else {
         s.paused = true;
         pauseBtn.innerHTML = '&#9654;';
-        pauseBtn.classList.remove('playing');
         pauseBtn.classList.add('paused');
         pauseBtn.setAttribute('aria-label', 'Play slideshow');
         stopAuto(show);
@@ -123,10 +120,7 @@ function goTo(show, idx) {
   const s = state.get(show);
   if (s) s.idx = idx;
   const sp = state.get(show);
-  if (sp && !sp.paused) {
-    stopAuto(show);
-    startAuto(show);
-  }
+  if (sp && !sp.paused) { stopAuto(show); startAuto(show); }
 }
 
 function startAuto(show) {

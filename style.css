@@ -4,7 +4,7 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 body {
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'Plus Jakarta Sans', sans-serif;
   background: #FAF7FF;
   color: #2D1B4E;
   overflow-x: hidden;
@@ -59,14 +59,14 @@ body {
   to   { transform: rotate(360deg); }
 }
 .hero-sub {
-  font-family: 'Caveat', cursive;
+  font-family: 'Plus Jakarta Sans', sans-serif;
   font-size: 1.2rem;
   color: #C8A0FF;
   margin-bottom: 0.8rem;
   position: relative;
 }
 .hero h1 {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Plus Jakarta Sans', sans-serif;
   font-size: clamp(2.4rem, 8vw, 4.5rem);
   line-height: 1.1;
   color: #fff;
@@ -92,7 +92,7 @@ body {
   padding: 3rem 1.5rem;
 }
 .section-title {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Plus Jakarta Sans', sans-serif;
   font-size: 1.6rem;
   color: #2D1B4E;
   margin-bottom: 1.5rem;
@@ -110,7 +110,7 @@ body {
   margin-bottom: 1.5rem;
 }
 .gtab {
-  font-family: 'Caveat', cursive;
+  font-family: 'Plus Jakarta Sans', sans-serif;
   font-size: 1.05rem;
   padding: 6px 18px;
   border-radius: 20px;
@@ -204,17 +204,18 @@ body {
   overflow: hidden;
 }
 .caption-name {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Plus Jakarta Sans', sans-serif;
   font-size: 1.05rem;
   font-weight: 700;
   color: #2D1B4E;
   margin-bottom: 4px;
 }
 .caption-quote {
-  font-family: 'Caveat', cursive;
-  font-size: 1.2rem;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
   color: #7A5A9A;
-  line-height: 1.4;
+  line-height: 1.6;
   overflow: hidden;
   display: -webkit-box;
   -webkit-line-clamp: 3;
@@ -287,7 +288,7 @@ body {
   background: rgba(0,0,0,0.45);
   color: #fff;
   font-size: 0.75rem;
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'Plus Jakarta Sans', sans-serif;
   padding: 3px 10px;
   border-radius: 20px;
   z-index: 2;
@@ -318,17 +319,18 @@ body {
   box-shadow: 0 6px 20px rgba(0,0,0,0.08);
 }
 .teacher-name {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Plus Jakarta Sans', sans-serif;
   font-size: 0.95rem;
   font-weight: 700;
   color: #E05C8A;
   margin-bottom: 6px;
 }
 .teacher-quote {
-  font-family: 'Caveat', cursive;
-  font-size: 1.1rem;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 500;
   color: #7A5A9A;
-  line-height: 1.45;
+  line-height: 1.6;
 }
 
 /* ============================================
@@ -346,7 +348,7 @@ body {
   margin: 1rem 0 0.6rem;
 }
 .footer-text {
-  font-family: 'Caveat', cursive;
+  font-family: 'Plus Jakarta Sans', sans-serif;
   font-size: 1.4rem;
   line-height: 1.5;
   color: #FFB6D5;
@@ -375,7 +377,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'Plus Jakarta Sans', sans-serif;
   font-weight: 600;
   transition: all 0.15s;
 }
