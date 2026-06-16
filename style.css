@@ -21,31 +21,23 @@ body {
   position: relative;
   overflow: hidden;
 }
-
-/* Staff lines decoration behind hero */
 .hero::before {
   content: '';
   position: absolute;
   inset: 0;
   background-image: repeating-linear-gradient(
     to bottom,
-    transparent 0px,
-    transparent 28px,
-    rgba(255,255,255,0.07) 28px,
-    rgba(255,255,255,0.07) 30px
+    transparent 0px, transparent 28px,
+    rgba(255,255,255,0.07) 28px, rgba(255,255,255,0.07) 30px
   );
   pointer-events: none;
 }
-
-/* Spinning vinyl record */
 .vinyl {
-  width: 120px;
-  height: 120px;
+  width: 120px; height: 120px;
   border-radius: 50%;
   background: radial-gradient(circle at 50%,
     #666 0%, #222 24%, #555 26%, #333 42%,
-    #111 44%, #333 68%, #111 70%, #222 100%
-  );
+    #111 44%, #333 68%, #111 70%, #222 100%);
   margin: 0 auto 1.5rem;
   position: relative;
   animation: spin 8s linear infinite;
@@ -60,16 +52,12 @@ body {
   border-radius: 50%;
   background: #e8c840;
 }
-.vinyl.small {
-  width: 60px; height: 60px;
-}
+.vinyl.small { width: 60px; height: 60px; }
 .vinyl.small::after { width: 12px; height: 12px; }
-
 @keyframes spin {
   from { transform: rotate(0deg); }
   to   { transform: rotate(360deg); }
 }
-
 .hero-sub {
   font-family: 'Caveat', cursive;
   font-size: 1.2rem;
@@ -77,7 +65,6 @@ body {
   margin-bottom: 0.8rem;
   position: relative;
 }
-
 .hero h1 {
   font-family: 'Playfair Display', serif;
   font-size: clamp(2.4rem, 8vw, 4.5rem);
@@ -85,11 +72,7 @@ body {
   color: #fff;
   position: relative;
 }
-
-.hero h1 span {
-  color: #e8c840;
-}
-
+.hero h1 span { color: #e8c840; }
 .hero-tagline {
   margin-top: 1rem;
   font-size: 1rem;
@@ -108,7 +91,6 @@ body {
   margin: 0 auto;
   padding: 3rem 1.5rem;
 }
-
 .section-title {
   font-family: 'Playfair Display', serif;
   font-size: 1.6rem;
@@ -127,7 +109,6 @@ body {
   gap: 8px;
   margin-bottom: 1.5rem;
 }
-
 .gtab {
   font-family: 'Caveat', cursive;
   font-size: 1.05rem;
@@ -139,11 +120,7 @@ body {
   cursor: pointer;
   transition: all 0.2s;
 }
-
-.gtab:hover {
-  background: #f0e6cc;
-}
-
+.gtab:hover { background: #f0e6cc; }
 .gtab.active {
   background: #2c1a0e;
   color: #f0e0b0;
@@ -156,24 +133,26 @@ body {
 .slideshow {
   display: none;
   border-radius: 12px;
-  overflow: hidden;
   border: 1.5px solid #e0c898;
-  background: #1a1010;
+  background: #fff;          /* ← white, not dark brown */
+  overflow: hidden;
+}
+.slideshow.active { display: block; }
+
+/* Clips the blur without blocking the slide animation */
+.slideshow-inner {
+  position: relative;
+  overflow: hidden;          /* ← overflow here, NOT on slides-track */
 }
 
-.slideshow.active {
-  display: block;
-}
-
-/* The track that slides left/right */
+/* NO overflow:hidden on slides-track — it must scroll freely */
 .slides-track {
   display: flex;
-  overflow: hidden;
   transition: transform 0.5s cubic-bezier(0.77, 0, 0.18, 1);
   will-change: transform;
 }
 
-/* Each individual slide */
+/* Each slide is exactly the width of the container */
 .slide {
   min-width: 100%;
   max-width: 100%;
@@ -181,7 +160,7 @@ body {
   overflow: hidden;
 }
 
-/* Photo area — fixed height, blurred sides fill portrait gaps */
+/* Photo box — fixed height */
 .photo-wrap {
   width: 100%;
   height: 400px;
@@ -190,39 +169,40 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  background: #222;
 }
 
-/* Blurred background layer — same image, fills the whole box */
+/* Blurred bg — inset keeps it inside without scale overflow */
 .photo-wrap .photo-bg {
   position: absolute;
-  inset: 0;
+  inset: -20px;
   background-size: cover;
   background-position: center;
-  filter: blur(18px) brightness(0.6);
-  transform: scale(1.1);
+  filter: blur(20px) brightness(0.55);
   z-index: 0;
 }
 
-/* Actual photo on top — auto width/height so it never stretches */
+/* Photo centred, never expands the box */
 .photo-wrap img {
-  position: relative;
+  position: absolute;
   z-index: 1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   max-width: 100%;
-  max-height: 100%;
+  max-height: 400px;
   width: auto;
-  height: 100%;
-  object-fit: contain;
+  height: auto;
   display: block;
 }
 
-
-/* White paper strip below photo */
+/* Caption strip */
 .caption-strip {
   background: #fff;
   padding: 14px 20px 16px;
   border-top: 2px solid #e0c898;
+  overflow: hidden;
 }
-
 .caption-name {
   font-family: 'Playfair Display', serif;
   font-size: 1.05rem;
@@ -230,12 +210,15 @@ body {
   color: #2c1a0e;
   margin-bottom: 4px;
 }
-
 .caption-quote {
   font-family: 'Caveat', cursive;
   font-size: 1.2rem;
   color: #5a3a1a;
   line-height: 1.4;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
 }
 
 /* Arrow + dots bar */
@@ -244,10 +227,9 @@ body {
   align-items: center;
   justify-content: space-between;
   padding: 10px 16px;
-  background: #fdf6e3;
+  background: #fff;
   border-top: 1px solid #e0c898;
 }
-
 .arrow {
   background: none;
   border: 1.5px solid #c0a060;
@@ -261,13 +243,11 @@ body {
   justify-content: center;
   transition: all 0.15s;
 }
-
 .arrow:hover {
   background: #2c1a0e;
   border-color: #2c1a0e;
   color: #f0e0b0;
 }
-
 .dots {
   display: flex;
   gap: 6px;
@@ -276,7 +256,6 @@ body {
   justify-content: center;
   max-width: 60%;
 }
-
 .dot {
   width: 8px; height: 8px;
   border-radius: 50%;
@@ -287,18 +266,13 @@ body {
   transition: all 0.2s;
   flex-shrink: 0;
 }
-
 .dot.active {
   background: #c0392b;
   transform: scale(1.35);
 }
 
-/* Auto-play progress bar */
-.progress-bar {
-  height: 3px;
-  background: #e8d8b0;
-}
-
+/* Progress bar */
+.progress-bar { height: 3px; background: #e8d8b0; }
 .progress-fill {
   height: 100%;
   width: 0%;
@@ -306,20 +280,32 @@ body {
   transition: width 0.1s linear;
 }
 
-/* ============================================
-   TEACHERS SECTION (no photos, quote grid)
-   ============================================ */
-.teachers-group {
-  background: #fdf6e3;
+/* Slide badges */
+.slide-badge {
+  position: absolute;
+  top: 12px;
+  background: rgba(0,0,0,0.45);
+  color: #fff;
+  font-size: 0.75rem;
+  font-family: 'DM Sans', sans-serif;
+  padding: 3px 10px;
+  border-radius: 20px;
+  z-index: 2;
+  pointer-events: none;
 }
+.slide-badge.left  { left: 12px; }
+.slide-badge.right { right: 12px; }
 
+/* ============================================
+   TEACHERS SECTION
+   ============================================ */
+.teachers-group { background: #fdf6e3; }
 .teachers-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 14px;
   padding: 20px;
 }
-
 .teacher-card {
   background: #fff;
   border: 1.5px solid #e0c898;
@@ -327,12 +313,10 @@ body {
   padding: 16px;
   transition: transform 0.2s, box-shadow 0.2s;
 }
-
 .teacher-card:hover {
   transform: translateY(-3px);
   box-shadow: 0 6px 20px rgba(0,0,0,0.08);
 }
-
 .teacher-name {
   font-family: 'Playfair Display', serif;
   font-size: 0.95rem;
@@ -340,7 +324,6 @@ body {
   color: #c0392b;
   margin-bottom: 6px;
 }
-
 .teacher-quote {
   font-family: 'Caveat', cursive;
   font-size: 1.1rem;
@@ -357,13 +340,11 @@ body {
   background: #2c1a0e;
   color: #f0e0b0;
 }
-
 .footer-notes {
   font-size: 1.8rem;
   letter-spacing: 10px;
   margin: 1rem 0 0.6rem;
 }
-
 .footer-text {
   font-family: 'Caveat', cursive;
   font-size: 1.4rem;
@@ -371,29 +352,12 @@ body {
   color: #e8c840;
   margin-bottom: 1rem;
 }
-
 .footer-school {
   font-size: 0.8rem;
   color: #7a5c3a;
   letter-spacing: 1px;
   text-transform: uppercase;
 }
-
-/* Slide badges (group name + counter) */
-.slide-badge {
-  position: absolute;
-  top: 12px;
-  background: rgba(0,0,0,0.45);
-  color: #fff;
-  font-size: 0.75rem;
-  font-family: 'DM Sans', sans-serif;
-  padding: 3px 10px;
-  border-radius: 20px;
-  z-index: 2;
-  pointer-events: none;
-}
-.slide-badge.left  { left: 12px; }
-.slide-badge.right { right: 12px; }
 
 /* ============================================
    RESPONSIVE
