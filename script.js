@@ -77,7 +77,34 @@ function initSlideshow(show) {
   prevBtn.addEventListener('click', () => goTo(show, getIdx(show) - 1));
   nextBtn.addEventListener('click', () => goTo(show, getIdx(show) + 1));
 
-  state.set(show, { idx: 0, raf: null, start: null });
+  state.set(show, { idx: 0, raf: null, start: null, paused: false });
+  // Pause button
+  const pauseBtn = show.querySelector('.pause-btn');
+  if (pauseBtn) {
+    pauseBtn.classList.add('playing');
+    pauseBtn.addEventListener('click', () => {
+      const s = state.get(show);
+      if (!s) return;
+      if (s.paused) {
+        s.paused = false;
+        pauseBtn.innerHTML = '&#10074;&#10074;';
+        pauseBtn.classList.remove('paused');
+        pauseBtn.classList.add('playing');
+        pauseBtn.setAttribute('aria-label', 'Pause slideshow');
+        startAuto(show);
+      } else {
+        s.paused = true;
+        pauseBtn.innerHTML = '&#9654;';
+        pauseBtn.classList.remove('playing');
+        pauseBtn.classList.add('paused');
+        pauseBtn.setAttribute('aria-label', 'Play slideshow');
+        stopAuto(show);
+        const fill = show.querySelector('.progress-fill');
+        if (fill) fill.style.width = '0%';
+      }
+    });
+  }
+
   if (show.classList.contains('active')) startAuto(show);
 }
 
@@ -95,8 +122,11 @@ function goTo(show, idx) {
 
   const s = state.get(show);
   if (s) s.idx = idx;
-  stopAuto(show);
-  startAuto(show);
+  const sp = state.get(show);
+  if (sp && !sp.paused) {
+    stopAuto(show);
+    startAuto(show);
+  }
 }
 
 function startAuto(show) {
