@@ -5,8 +5,8 @@
 
 body {
   font-family: 'DM Sans', sans-serif;
-  background: #fdf6e3;
-  color: #2c1a0e;
+  background: #FAF7FF;
+  color: #2D1B4E;
   overflow-x: hidden;
 }
 
@@ -16,8 +16,8 @@ body {
 .hero {
   text-align: center;
   padding: 4rem 1.5rem 3rem;
-  background: #2c1a0e;
-  color: #f0e0b0;
+  background: #2D1B4E;
+  color: #EDD5FF;
   position: relative;
   overflow: hidden;
 }
@@ -50,7 +50,7 @@ body {
   transform: translate(-50%, -50%);
   width: 24px; height: 24px;
   border-radius: 50%;
-  background: #e8c840;
+  background: #FFB6D5;
 }
 .vinyl.small { width: 60px; height: 60px; }
 .vinyl.small::after { width: 12px; height: 12px; }
@@ -61,7 +61,7 @@ body {
 .hero-sub {
   font-family: 'Caveat', cursive;
   font-size: 1.2rem;
-  color: #c0a060;
+  color: #C8A0FF;
   margin-bottom: 0.8rem;
   position: relative;
 }
@@ -72,11 +72,11 @@ body {
   color: #fff;
   position: relative;
 }
-.hero h1 span { color: #e8c840; }
+.hero h1 span { color: #FFB6D5; }
 .hero-tagline {
   margin-top: 1rem;
   font-size: 1rem;
-  color: #a08060;
+  color: #C8A0FF;
   position: relative;
   max-width: 460px;
   margin-left: auto;
@@ -94,10 +94,10 @@ body {
 .section-title {
   font-family: 'Playfair Display', serif;
   font-size: 1.6rem;
-  color: #2c1a0e;
+  color: #2D1B4E;
   margin-bottom: 1.5rem;
   padding-bottom: 0.5rem;
-  border-bottom: 1.5px solid #e0c898;
+  border-bottom: 1.5px solid #C8A0FF;
 }
 
 /* ============================================
@@ -114,17 +114,17 @@ body {
   font-size: 1.05rem;
   padding: 6px 18px;
   border-radius: 20px;
-  border: 1.5px solid #c0a060;
+  border: 1.5px solid #C8A0FF;
   background: transparent;
-  color: #7a5c3a;
+  color: #2D1B4E;
   cursor: pointer;
   transition: all 0.2s;
 }
-.gtab:hover { background: #f0e6cc; }
+.gtab:hover { background: #EDD5FF; }
 .gtab.active {
-  background: #2c1a0e;
-  color: #f0e0b0;
-  border-color: #2c1a0e;
+  background: #2D1B4E;
+  color: #EDD5FF;
+  border-color: #2D1B4E;
 }
 
 /* ============================================
@@ -133,7 +133,7 @@ body {
 .slideshow {
   display: none;
   border-radius: 12px;
-  border: 1.5px solid #e0c898;
+  border: 1.5px solid #C8A0FF;
   background: #fff;          /* ← white, not dark brown */
   overflow: hidden;
 }
@@ -200,20 +200,20 @@ body {
 .caption-strip {
   background: #fff;
   padding: 14px 20px 16px;
-  border-top: 2px solid #e0c898;
+  border-top: 2px solid #EDD5FF;
   overflow: hidden;
 }
 .caption-name {
   font-family: 'Playfair Display', serif;
   font-size: 1.05rem;
   font-weight: 700;
-  color: #2c1a0e;
+  color: #2D1B4E;
   margin-bottom: 4px;
 }
 .caption-quote {
   font-family: 'Caveat', cursive;
   font-size: 1.2rem;
-  color: #5a3a1a;
+  color: #7A5A9A;
   line-height: 1.4;
   overflow: hidden;
   display: -webkit-box;
@@ -228,15 +228,15 @@ body {
   justify-content: space-between;
   padding: 10px 16px;
   background: #fff;
-  border-top: 1px solid #e0c898;
+  border-top: 1px solid #EDD5FF;
 }
 .arrow {
   background: none;
-  border: 1.5px solid #c0a060;
+  border: 1.5px solid #C8A0FF;
   border-radius: 50%;
   width: 36px; height: 36px;
   font-size: 1rem;
-  color: #7a5c3a;
+  color: #2D1B4E;
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -244,9 +244,9 @@ body {
   transition: all 0.15s;
 }
 .arrow:hover {
-  background: #2c1a0e;
-  border-color: #2c1a0e;
-  color: #f0e0b0;
+  background: #2D1B4E;
+  border-color: #2D1B4E;
+  color: #EDD5FF;
 }
 .dots {
   display: flex;
@@ -259,7 +259,7 @@ body {
 .dot {
   width: 8px; height: 8px;
   border-radius: 50%;
-  background: #d0b880;
+  background: #C8A0FF;
   cursor: pointer;
   border: none;
   padding: 0;
@@ -267,16 +267,16 @@ body {
   flex-shrink: 0;
 }
 .dot.active {
-  background: #c0392b;
+  background: #E05C8A;
   transform: scale(1.35);
 }
 
 /* Progress bar */
-.progress-bar { height: 3px; background: #e8d8b0; }
+.progress-bar { height: 3px; background: #EDD5FF; }
 .progress-fill {
   height: 100%;
   width: 0%;
-  background: #c0392b;
+  background: #E05C8A;
   transition: width 0.1s linear;
 }
 
@@ -299,7 +299,7 @@ body {
 /* ============================================
    TEACHERS SECTION
    ============================================ */
-.teachers-group { background: #fdf6e3; }
+.teachers-group { background: #FAF7FF; }
 .teachers-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -308,7 +308,7 @@ body {
 }
 .teacher-card {
   background: #fff;
-  border: 1.5px solid #e0c898;
+  border: 1.5px solid #C8A0FF;
   border-radius: 10px;
   padding: 16px;
   transition: transform 0.2s, box-shadow 0.2s;
@@ -321,13 +321,13 @@ body {
   font-family: 'Playfair Display', serif;
   font-size: 0.95rem;
   font-weight: 700;
-  color: #c0392b;
+  color: #E05C8A;
   margin-bottom: 6px;
 }
 .teacher-quote {
   font-family: 'Caveat', cursive;
   font-size: 1.1rem;
-  color: #3a2a1a;
+  color: #7A5A9A;
   line-height: 1.45;
 }
 
@@ -337,8 +337,8 @@ body {
 .footer {
   text-align: center;
   padding: 3rem 1.5rem;
-  background: #2c1a0e;
-  color: #f0e0b0;
+  background: #2D1B4E;
+  color: #EDD5FF;
 }
 .footer-notes {
   font-size: 1.8rem;
@@ -349,12 +349,12 @@ body {
   font-family: 'Caveat', cursive;
   font-size: 1.4rem;
   line-height: 1.5;
-  color: #e8c840;
+  color: #FFB6D5;
   margin-bottom: 1rem;
 }
 .footer-school {
   font-size: 0.8rem;
-  color: #7a5c3a;
+  color: #2D1B4E;
   letter-spacing: 1px;
   text-transform: uppercase;
 }
